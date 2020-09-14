@@ -1,0 +1,109 @@
+[Variables]
+First=0
+Second=0
+Lunch=0
+Third=0
+Fourth=0
+Weekday=0
+[MeasureTime]
+Measure=Time
+Format=%H
+;First
+IfCondition=#CurrentSection#=08
+IfTrueAction=[!SetVariable First 1]
+IfFalseAction=[!SetVariable First 0]
+;Second
+IfCondition2=#CurrentSection#=10
+IfTrueAction2=[!SetVariable Second 1]
+IfFalseAction2=[!SetVariable Second 0]
+;Lunch
+IfCondition3=#CurrentSection#=12
+IfTrueAction3=[!SetVariable Lunch 1]
+IfFalseAction3=[!SetVariable Lunch 0]
+;Third
+IfCondition4=#CurrentSection#=13
+IfTrueAction4=[!SetVariable Third 1]
+IfFalseAction4=[!SetVariable Third 0]
+;Fourth
+IfCondition5=#CurrentSection#=15
+IfTrueAction5=[!SetVariable Fourth 1]
+IfFalseAction5=[!SetVariable Fourth 0]
+[MeasureDay]
+Measure=Time
+Format=%w
+IfCondition=#CurrentSection#=0 || #CurrentSection#=6
+IfTrueAction=[!SetVariable Weekday 0]
+IfFalseAction=[!SetVariable Weekday 1]
+[LunchTime]
+Measure=Calc
+IfCondition=#Weekday#=1 && #Lunch#=1
+IfTrueAction=[!ShowMeter MeterImage][!SetOption MeterImage ImagePath #@#LUNCHTIME-01.png][!Redraw]
+[Monday]
+Measure=Calc
+IfCondition=(MeasureDay = 1) && (#First# = 1)
+IfTrueAction=[!ShowMeter MeterImage][!SetOption MeterImage ImagePath #@#\First\1\1STDPERIOD-01.png][!Redraw]
+IfCondition1=(MeasureDay = 1) && (#Second# = 1)
+IfTrueAction1=[!SetOption MeterImage ImagePath #@#\First\1\2NDPERIOD-01.png][!Redraw]
+IfCondition2=(MeasureDay = 1) && (#Third# = 1)
+IfTrueAction2=[!SetOption MeterImage ImagePath #@#\First\1\3RDPERIOD-01.png][!Redraw]
+IfCondition3=(MeasureDay = 1) && (#Fourth# = 1)
+IfTrueAction3=[!SetOption MeterImage ImagePath #@#\First\1\4THPERIOD-01.png][!Redraw]
+IfCondition4=(#Weekday#=1) && (MeasureTime=17)
+IfTrueAction4=[!HideMeter MeterImage][!Redraw]
+DynamicVariables=1
+[Tuesday]
+Measure=Calc
+IfCondition=(MeasureDay = 2) && (#First# = 1)
+IfTrueAction=[!ShowMeter MeterImage][!SetOption MeterImage ImagePath #@#\First\2\1STDPERIOD-01.png][!Redraw]
+IfCondition1=(MeasureDay = 2) && (#Second# = 1)
+IfTrueAction1=[!SetOption MeterImage ImagePath #@#\First\2\2NDPERIOD-01.png][!Redraw]
+IfCondition2=(MeasureDay = 2) && (#Third# = 1)
+IfTrueAction2=[!SetOption MeterImage ImagePath #@#\First\2\3RDPERIOD-01.png][!Redraw]
+IfCondition3=(MeasureDay = 2) && (#Fourth# = 1)
+IfTrueAction3=[!SetOption MeterImage ImagePath #@#\First\2\4THPERIOD-01.png][!Redraw]
+IfCondition4=(#Weekday#=1) && (MeasureTime=17)
+IfTrueAction4=[!HideMeter MeterImage][!Redraw]
+DynamicVariables=1
+[Wednesday]
+Measure=Calc
+IfCondition=(MeasureDay = 3) && (#First# = 1)
+IfTrueAction=[!ShowMeter MeterImage][!SetOption MeterImage ImagePath #@#\First\3\1STDPERIOD-01.png][!Redraw]
+IfCondition1=(MeasureDay = 3) && (#Second# = 1)
+IfTrueAction1=[!SetOption MeterImage ImagePath #@#\First\3\2NDPERIOD-01.png][!Redraw]
+IfCondition2=(MeasureDay = 3) && (#Third# = 1)
+IfTrueAction2=[!SetOption MeterImage ImagePath #@#\First\3\3RDPERIOD-01.png][!Redraw]
+IfCondition3=(MeasureDay = 3) && (#Fourth# = 1)
+IfTrueAction3=[!SetOption MeterImage ImagePath #@#\First\3\4THPERIOD-01.png][!Redraw]
+IfCondition4=(#Weekday#=1) && (MeasureTime=17)
+IfTrueAction4=[!HideMeter MeterImage][!Redraw]
+DynamicVariables=1
+[Thursday]
+Measure=Calc
+IfCondition=(MeasureDay = 4) && (#First# = 1)
+IfTrueAction=[!ShowMeter MeterImage][!SetOption MeterImage ImagePath #@#\First\4\1STDPERIOD-01.png][!Redraw]
+IfCondition1=(MeasureDay = 4) && (#Second# = 1)
+IfTrueAction1=[!SetOption MeterImage ImagePath #@#\First\4\2NDPERIOD-01.png][!Redraw]
+IfCondition2=(MeasureDay = 4) && (#Third# = 1)
+IfTrueAction2=[!SetOption MeterImage ImagePath #@#\First\4\3RDPERIOD-01.png][!Redraw]
+IfCondition4=(#Weekday#=1) && (MeasureTime=15)
+IfTrueAction4=[!HideMeter MeterImage][!Redraw]
+DynamicVariables=1
+[Friday]
+Measure=Calc
+IfCondition=(MeasureDay = 5) && (#First# = 1)
+IfTrueAction=[!ShowMeter MeterImage][!SetOption MeterImage ImagePath #@#\First\5\1STDPERIOD-01.png][!Redraw]
+IfCondition1=(MeasureDay = 5) && (#Second# = 1)
+IfTrueAction1=[!SetOption MeterImage ImagePath #@#\First\5\2NDPERIOD-01.png][!Redraw]
+IfCondition2=(MeasureDay = 5) && (#Third# = 1)
+IfTrueAction2=[!SetOption MeterImage ImagePath #@#\First\5\3RDPERIOD-01.png][!Redraw]
+IfCondition3=(MeasureDay = 5) && (#Fourth# = 1)
+IfTrueAction3=[!SetOption MeterImage ImagePath #@#\First\5\4THPERIOD-01.png][!Redraw]
+IfCondition4=(#Weekday#=1) && (MeasureTime=17)
+IfTrueAction4=[!HideMeter MeterImage][!Redraw]
+DynamicVariables=1
+[MeterImage]
+Meter=Image
+W=250
+H=125
+PreserveAspectRatio=1
+ImagePath=#@#\First\1\1STPERIOD-01.png
